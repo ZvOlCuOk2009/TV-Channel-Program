@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+@import Firebase;
+@import FirebaseAuth;
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [FIRApp configure];
+    [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+         
+     }];
     return YES;
 }
 

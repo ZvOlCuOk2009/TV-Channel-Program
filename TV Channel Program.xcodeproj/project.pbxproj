@@ -7,25 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01BEAA085DF66379043FD543 /* libPods-TV Channel Program.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8ECAD6E44AA6B9E0C54AF4 /* libPods-TV Channel Program.a */; };
 		FD1E85CD1E433A2F004CA4C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85CC1E433A2F004CA4C1 /* main.m */; };
 		FD1E85D01E433A2F004CA4C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85CF1E433A2F004CA4C1 /* AppDelegate.m */; };
-		FD1E85D31E433A2F004CA4C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85D21E433A2F004CA4C1 /* ViewController.m */; };
 		FD1E85D61E433A2F004CA4C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1E85D41E433A2F004CA4C1 /* Main.storyboard */; };
 		FD1E85D81E433A30004CA4C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD1E85D71E433A30004CA4C1 /* Assets.xcassets */; };
 		FD1E85DB1E433A30004CA4C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1E85D91E433A30004CA4C1 /* LaunchScreen.storyboard */; };
+		FD1E85E41E436B18004CA4C1 /* TSTransportService.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85E31E436B18004CA4C1 /* TSTransportService.m */; };
+		FD1E85EA1E436BFB004CA4C1 /* TSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85E91E436BFB004CA4C1 /* TSTabBarController.m */; };
+		FD1E85ED1E436D63004CA4C1 /* TSChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85EC1E436D63004CA4C1 /* TSChannelViewController.m */; };
+		FD1E85F11E437C11004CA4C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD1E85F01E437C11004CA4C1 /* GoogleService-Info.plist */; };
+		FD1E85F91E439981004CA4C1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1E85F81E439981004CA4C1 /* AdSupport.framework */; };
+		FD1E85FD1E43B902004CA4C1 /* TSChanel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85FC1E43B902004CA4C1 /* TSChanel.m */; };
+		FDE920091E448DBD002EB48C /* TSContentService.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE920081E448DBD002EB48C /* TSContentService.m */; };
+		FDE9200C1E448ECD002EB48C /* TSDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE9200B1E448ECD002EB48C /* TSDataService.m */; };
+		FDE920101E44B8B5002EB48C /* TSChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE9200F1E44B8B5002EB48C /* TSChannelCell.m */; };
+		FDE920131E450F3F002EB48C /* TSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE920121E450F3F002EB48C /* TSCategory.m */; };
+		FDE920161E451054002EB48C /* TSCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE920151E451054002EB48C /* TSCategoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		206C83C0AB04C1212CE33FD9 /* Pods-TV Channel Program.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Channel Program.release.xcconfig"; path = "Pods/Target Support Files/Pods-TV Channel Program/Pods-TV Channel Program.release.xcconfig"; sourceTree = "<group>"; };
+		2A8ECAD6E44AA6B9E0C54AF4 /* libPods-TV Channel Program.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TV Channel Program.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F70F28DFE8FAAFD3AB407FB5 /* Pods-TV Channel Program.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Channel Program.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TV Channel Program/Pods-TV Channel Program.debug.xcconfig"; sourceTree = "<group>"; };
 		FD1E85C81E433A2F004CA4C1 /* TV Channel Program.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV Channel Program.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1E85CC1E433A2F004CA4C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD1E85CE1E433A2F004CA4C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FD1E85CF1E433A2F004CA4C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FD1E85D11E433A2F004CA4C1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FD1E85D21E433A2F004CA4C1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FD1E85D51E433A2F004CA4C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD1E85D71E433A30004CA4C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD1E85DA1E433A30004CA4C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD1E85DC1E433A30004CA4C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD1E85E21E436B18004CA4C1 /* TSTransportService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTransportService.h; sourceTree = "<group>"; };
+		FD1E85E31E436B18004CA4C1 /* TSTransportService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTransportService.m; sourceTree = "<group>"; };
+		FD1E85E81E436BFB004CA4C1 /* TSTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTabBarController.h; sourceTree = "<group>"; };
+		FD1E85E91E436BFB004CA4C1 /* TSTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTabBarController.m; sourceTree = "<group>"; };
+		FD1E85EB1E436D63004CA4C1 /* TSChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSChannelViewController.h; sourceTree = "<group>"; };
+		FD1E85EC1E436D63004CA4C1 /* TSChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSChannelViewController.m; sourceTree = "<group>"; };
+		FD1E85F01E437C11004CA4C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FD1E85F81E439981004CA4C1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		FD1E85FB1E43B902004CA4C1 /* TSChanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSChanel.h; sourceTree = "<group>"; };
+		FD1E85FC1E43B902004CA4C1 /* TSChanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSChanel.m; sourceTree = "<group>"; };
+		FDE920071E448DBD002EB48C /* TSContentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSContentService.h; sourceTree = "<group>"; };
+		FDE920081E448DBD002EB48C /* TSContentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSContentService.m; sourceTree = "<group>"; };
+		FDE9200A1E448ECD002EB48C /* TSDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDataService.h; sourceTree = "<group>"; };
+		FDE9200B1E448ECD002EB48C /* TSDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDataService.m; sourceTree = "<group>"; };
+		FDE9200E1E44B8B5002EB48C /* TSChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSChannelCell.h; sourceTree = "<group>"; };
+		FDE9200F1E44B8B5002EB48C /* TSChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSChannelCell.m; sourceTree = "<group>"; };
+		FDE920111E450F3F002EB48C /* TSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCategory.h; sourceTree = "<group>"; };
+		FDE920121E450F3F002EB48C /* TSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCategory.m; sourceTree = "<group>"; };
+		FDE920141E451054002EB48C /* TSCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCategoryViewController.h; sourceTree = "<group>"; };
+		FDE920151E451054002EB48C /* TSCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCategoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +65,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1E85F91E439981004CA4C1 /* AdSupport.framework in Frameworks */,
+				01BEAA085DF66379043FD543 /* libPods-TV Channel Program.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BD3D1CCCCC2A691AFC118D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD1E85F81E439981004CA4C1 /* AdSupport.framework */,
+				2A8ECAD6E44AA6B9E0C54AF4 /* libPods-TV Channel Program.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F91B03D289C6D4485527C641 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F70F28DFE8FAAFD3AB407FB5 /* Pods-TV Channel Program.debug.xcconfig */,
+				206C83C0AB04C1212CE33FD9 /* Pods-TV Channel Program.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FD1E85BF1E433A2F004CA4C1 = {
 			isa = PBXGroup;
 			children = (
 				FD1E85CA1E433A2F004CA4C1 /* TV Channel Program */,
 				FD1E85C91E433A2F004CA4C1 /* Products */,
+				F91B03D289C6D4485527C641 /* Pods */,
+				7BD3D1CCCCC2A691AFC118D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,14 +112,16 @@
 		FD1E85CA1E433A2F004CA4C1 /* TV Channel Program */ = {
 			isa = PBXGroup;
 			children = (
-				FD1E85CE1E433A2F004CA4C1 /* AppDelegate.h */,
-				FD1E85CF1E433A2F004CA4C1 /* AppDelegate.m */,
-				FD1E85D11E433A2F004CA4C1 /* ViewController.h */,
-				FD1E85D21E433A2F004CA4C1 /* ViewController.m */,
+				FD1E85E61E436BBC004CA4C1 /* App */,
+				FD1E85FA1E43B8B8004CA4C1 /* Models */,
+				FD1E85E51E436B1F004CA4C1 /* Services */,
+				FDE9200D1E44B880002EB48C /* Cells */,
+				FD1E85E71E436BCF004CA4C1 /* Controllers */,
 				FD1E85D41E433A2F004CA4C1 /* Main.storyboard */,
 				FD1E85D71E433A30004CA4C1 /* Assets.xcassets */,
 				FD1E85D91E433A30004CA4C1 /* LaunchScreen.storyboard */,
 				FD1E85DC1E433A30004CA4C1 /* Info.plist */,
+				FD1E85F01E437C11004CA4C1 /* GoogleService-Info.plist */,
 				FD1E85CB1E433A2F004CA4C1 /* Supporting Files */,
 			);
 			path = "TV Channel Program";
@@ -79,6 +135,61 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FD1E85E51E436B1F004CA4C1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FDE920071E448DBD002EB48C /* TSContentService.h */,
+				FDE920081E448DBD002EB48C /* TSContentService.m */,
+				FD1E85E21E436B18004CA4C1 /* TSTransportService.h */,
+				FD1E85E31E436B18004CA4C1 /* TSTransportService.m */,
+				FDE9200A1E448ECD002EB48C /* TSDataService.h */,
+				FDE9200B1E448ECD002EB48C /* TSDataService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		FD1E85E61E436BBC004CA4C1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FD1E85CE1E433A2F004CA4C1 /* AppDelegate.h */,
+				FD1E85CF1E433A2F004CA4C1 /* AppDelegate.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		FD1E85E71E436BCF004CA4C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FD1E85E81E436BFB004CA4C1 /* TSTabBarController.h */,
+				FD1E85E91E436BFB004CA4C1 /* TSTabBarController.m */,
+				FD1E85EB1E436D63004CA4C1 /* TSChannelViewController.h */,
+				FD1E85EC1E436D63004CA4C1 /* TSChannelViewController.m */,
+				FDE920141E451054002EB48C /* TSCategoryViewController.h */,
+				FDE920151E451054002EB48C /* TSCategoryViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FD1E85FA1E43B8B8004CA4C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD1E85FB1E43B902004CA4C1 /* TSChanel.h */,
+				FD1E85FC1E43B902004CA4C1 /* TSChanel.m */,
+				FDE920111E450F3F002EB48C /* TSCategory.h */,
+				FDE920121E450F3F002EB48C /* TSCategory.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FDE9200D1E44B880002EB48C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9200E1E44B8B5002EB48C /* TSChannelCell.h */,
+				FDE9200F1E44B8B5002EB48C /* TSChannelCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD1E85DF1E433A30004CA4C1 /* Build configuration list for PBXNativeTarget "TV Channel Program" */;
 			buildPhases = (
+				2C901955BF333E15628E4568 /* [CP] Check Pods Manifest.lock */,
 				FD1E85C41E433A2F004CA4C1 /* Sources */,
 				FD1E85C51E433A2F004CA4C1 /* Frameworks */,
 				FD1E85C61E433A2F004CA4C1 /* Resources */,
+				E71A66970EC05D945128D224 /* [CP] Embed Pods Frameworks */,
+				4108D0DE82BF95DC0719ADB9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -105,12 +219,13 @@
 		FD1E85C01E433A2F004CA4C1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TS;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Mac;
 				TargetAttributes = {
 					FD1E85C71E433A2F004CA4C1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 5D7GRV784H;
+						DevelopmentTeam = 2ZQMG97HLH;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -138,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1E85F11E437C11004CA4C1 /* GoogleService-Info.plist in Resources */,
 				FD1E85DB1E433A30004CA4C1 /* LaunchScreen.storyboard in Resources */,
 				FD1E85D81E433A30004CA4C1 /* Assets.xcassets in Resources */,
 				FD1E85D61E433A2F004CA4C1 /* Main.storyboard in Resources */,
@@ -146,14 +262,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C901955BF333E15628E4568 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4108D0DE82BF95DC0719ADB9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TV Channel Program/Pods-TV Channel Program-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E71A66970EC05D945128D224 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TV Channel Program/Pods-TV Channel Program-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FD1E85C41E433A2F004CA4C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD1E85D31E433A2F004CA4C1 /* ViewController.m in Sources */,
+				FD1E85E41E436B18004CA4C1 /* TSTransportService.m in Sources */,
+				FDE920091E448DBD002EB48C /* TSContentService.m in Sources */,
 				FD1E85D01E433A2F004CA4C1 /* AppDelegate.m in Sources */,
+				FDE9200C1E448ECD002EB48C /* TSDataService.m in Sources */,
+				FDE920161E451054002EB48C /* TSCategoryViewController.m in Sources */,
+				FD1E85FD1E43B902004CA4C1 /* TSChanel.m in Sources */,
+				FD1E85EA1E436BFB004CA4C1 /* TSTabBarController.m in Sources */,
+				FDE920131E450F3F002EB48C /* TSCategory.m in Sources */,
+				FDE920101E44B8B5002EB48C /* TSChannelCell.m in Sources */,
 				FD1E85CD1E433A2F004CA4C1 /* main.m in Sources */,
+				FD1E85ED1E436D63004CA4C1 /* TSChannelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,10 +443,12 @@
 		};
 		FD1E85E01E433A30004CA4C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F70F28DFE8FAAFD3AB407FB5 /* Pods-TV Channel Program.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5D7GRV784H;
+				DEVELOPMENT_TEAM = 2ZQMG97HLH;
 				INFOPLIST_FILE = "TV Channel Program/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Tsvigun-Sasha.TV-Channel-Program";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -283,10 +457,12 @@
 		};
 		FD1E85E11E433A30004CA4C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 206C83C0AB04C1212CE33FD9 /* Pods-TV Channel Program.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5D7GRV784H;
+				DEVELOPMENT_TEAM = 2ZQMG97HLH;
 				INFOPLIST_FILE = "TV Channel Program/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Tsvigun-Sasha.TV-Channel-Program";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -312,6 +488,7 @@
 				FD1E85E11E433A30004CA4C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
