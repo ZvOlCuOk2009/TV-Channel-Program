@@ -42,11 +42,9 @@
     return self;
 }
 
-- (void)loadDataToDatabase:(NSArray *)responseObject
-{
-    [[self.ref child:@"channels"] setValue:responseObject];
-    [self.delegate loadDataFromDatabase:responseObject];
-}
+#pragma mark - parsing
+
+//получение каналов и категорий
 
 - (void)loadedChanels:(void(^)(NSArray *chanels))success
 {
@@ -67,5 +65,26 @@
         }
     }];
 }
+
+//сохранение индексов выбранных каналов в базу
+
+- (void)loadedIndexFavoritChannels:(NSString *)favoritIndex
+{
+    [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSMutableArray *updateChanels = [TSChanel initIndexFavoritWithSnapshot:snapshot theIndex:favoritIndex];
+        if (updateChanels) {
+            [self loadedFavoritChannels:updateChanels];
+        }
+    }];
+}
+
+- (void)loadedFavoritChannels:(NSArray *)indexFavoritChannels
+{
+    if (firstCall == 0) {
+        [[[[self.ref child:@"tvBase"] child:[FIRAuth auth].currentUser.uid] child:@"channels"] setValue:indexFavoritChannels];
+        firstCall = 1;
+    }
+}
+
 
 @end

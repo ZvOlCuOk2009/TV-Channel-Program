@@ -9,6 +9,10 @@
 #import "TSContentService.h"
 #import "TSTransportService.h"
 #import "TSDataService.h"
+#import "TSChanel.h"
+
+NSInteger syncDatabase;
+NSInteger firstCall;
 
 @interface TSContentService ()
 
@@ -24,10 +28,12 @@
     return self;
 }
 
+//проверяю если есть данные в базе, отображаю. Если нету, прошу TSTransportService подгрузить с сервера, сохранить и отобразить
+
 - (void)loadedChannels:(void(^)(NSArray *channels))success
 {
     [[TSDataService sharedService] loadedChanels:^(NSArray *channels) {
-        if (channels) {
+        if (channels && syncDatabase == 0) {
             success(channels);
         } else {
             [[TSTransportService sharedService] requestChannelsToServer];
@@ -44,6 +50,58 @@
             [[TSTransportService sharedService] requestCategorysToServer];
         }
     }];
+}
+
+//сортировка каналов по категориям
+
+- (void)loadListOfChannelsInCategoryes:(NSInteger)indexPath onSuccess:(void(^)(NSMutableArray *listChannels))success
+{
+    [[TSDataService sharedService] loadedChanels:^(NSArray *channels) {
+        NSMutableArray *sortChannels = nil;
+        if (channels) {
+            sortChannels = [NSMutableArray array];
+            for (int i = 0; i < [channels count]; i++) {
+                TSChanel *channel = [channels objectAtIndex:i];
+                if ([channel.category integerValue] == indexPath) {
+                    [sortChannels addObject:channel];
+                }
+            }
+            if (sortChannels) {
+                success(sortChannels);
+            }
+        }
+    }];
+}
+
+//отбор избранных каналов из базы
+
+- (void)loadedSelectedFavoritChannels:(void(^)(NSArray *selectedChannels))success
+{
+    [[TSDataService sharedService] loadedChanels:^(NSArray *channels) {
+        NSMutableArray *selectedChannels = [NSMutableArray array];
+        for (TSChanel *channel in channels) {
+            if (channel.favorite) {
+                [selectedChannels addObject:channel];
+            }
+        }
+        if (selectedChannels) {
+            success(selectedChannels);
+        }
+    }];
+}
+
+//добавление индексов избанных каналов в массив
+
+- (void)loadFavoritChannelsInDatabase:(NSString *)index;
+{
+    [[TSDataService sharedService] loadedIndexFavoritChannels:index];
+}
+
+//обновленного мвссива со свойствами избранных каналов
+
+- (void)loadedFavoritChannels:(NSArray *)indexFavoritChannels
+{
+    [[TSDataService sharedService] loadedFavoritChannels:indexFavoritChannels];
 }
 
 @end

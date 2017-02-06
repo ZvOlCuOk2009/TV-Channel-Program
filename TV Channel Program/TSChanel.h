@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@import FirebaseAuth;
 @import FirebaseDatabase;
 
 @interface TSChanel : NSObject
@@ -17,7 +18,9 @@
 @property (strong, nonatomic) NSString *url;
 @property (strong, nonatomic) NSString *ID;
 @property (strong, nonatomic) NSString *category;
+@property (strong, nonatomic) NSString *favorite;
 
 + (NSMutableArray *)initWithSnapshot:(FIRDataSnapshot *)snapshot;
++ (NSMutableArray *)initIndexFavoritWithSnapshot:(FIRDataSnapshot *)snapshot theIndex:(NSString *)index;
 
 @end

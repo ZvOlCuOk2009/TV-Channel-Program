@@ -19,6 +19,9 @@
 		FD1E85F11E437C11004CA4C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD1E85F01E437C11004CA4C1 /* GoogleService-Info.plist */; };
 		FD1E85F91E439981004CA4C1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1E85F81E439981004CA4C1 /* AdSupport.framework */; };
 		FD1E85FD1E43B902004CA4C1 /* TSChanel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85FC1E43B902004CA4C1 /* TSChanel.m */; };
+		FDB1397F1E460C72005DB54D /* TSLikedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB1397E1E460C72005DB54D /* TSLikedViewController.m */; };
+		FDB139821E460CCA005DB54D /* TSProgrammViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB139811E460CCA005DB54D /* TSProgrammViewController.m */; };
+		FDB139851E461A41005DB54D /* TSSortChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB139841E461A41005DB54D /* TSSortChannelViewController.m */; };
 		FDE920091E448DBD002EB48C /* TSContentService.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE920081E448DBD002EB48C /* TSContentService.m */; };
 		FDE9200C1E448ECD002EB48C /* TSDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE9200B1E448ECD002EB48C /* TSDataService.m */; };
 		FDE920101E44B8B5002EB48C /* TSChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE9200F1E44B8B5002EB48C /* TSChannelCell.m */; };
@@ -30,6 +33,7 @@
 		206C83C0AB04C1212CE33FD9 /* Pods-TV Channel Program.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Channel Program.release.xcconfig"; path = "Pods/Target Support Files/Pods-TV Channel Program/Pods-TV Channel Program.release.xcconfig"; sourceTree = "<group>"; };
 		2A8ECAD6E44AA6B9E0C54AF4 /* libPods-TV Channel Program.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TV Channel Program.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70F28DFE8FAAFD3AB407FB5 /* Pods-TV Channel Program.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Channel Program.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TV Channel Program/Pods-TV Channel Program.debug.xcconfig"; sourceTree = "<group>"; };
+		FD01565A1E4767B10082E1BC /* TSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSPrefixHeader.pch; sourceTree = "<group>"; };
 		FD1E85C81E433A2F004CA4C1 /* TV Channel Program.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV Channel Program.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1E85CC1E433A2F004CA4C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD1E85CE1E433A2F004CA4C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -48,6 +52,12 @@
 		FD1E85F81E439981004CA4C1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		FD1E85FB1E43B902004CA4C1 /* TSChanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSChanel.h; sourceTree = "<group>"; };
 		FD1E85FC1E43B902004CA4C1 /* TSChanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSChanel.m; sourceTree = "<group>"; };
+		FDB1397D1E460C72005DB54D /* TSLikedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSLikedViewController.h; sourceTree = "<group>"; };
+		FDB1397E1E460C72005DB54D /* TSLikedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSLikedViewController.m; sourceTree = "<group>"; };
+		FDB139801E460CCA005DB54D /* TSProgrammViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSProgrammViewController.h; sourceTree = "<group>"; };
+		FDB139811E460CCA005DB54D /* TSProgrammViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSProgrammViewController.m; sourceTree = "<group>"; };
+		FDB139831E461A41005DB54D /* TSSortChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSortChannelViewController.h; sourceTree = "<group>"; };
+		FDB139841E461A41005DB54D /* TSSortChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSortChannelViewController.m; sourceTree = "<group>"; };
 		FDE920071E448DBD002EB48C /* TSContentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSContentService.h; sourceTree = "<group>"; };
 		FDE920081E448DBD002EB48C /* TSContentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSContentService.m; sourceTree = "<group>"; };
 		FDE9200A1E448ECD002EB48C /* TSDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDataService.h; sourceTree = "<group>"; };
@@ -123,6 +133,7 @@
 				FD1E85DC1E433A30004CA4C1 /* Info.plist */,
 				FD1E85F01E437C11004CA4C1 /* GoogleService-Info.plist */,
 				FD1E85CB1E433A2F004CA4C1 /* Supporting Files */,
+				FD01565A1E4767B10082E1BC /* TSPrefixHeader.pch */,
 			);
 			path = "TV Channel Program";
 			sourceTree = "<group>";
@@ -166,6 +177,12 @@
 				FD1E85EC1E436D63004CA4C1 /* TSChannelViewController.m */,
 				FDE920141E451054002EB48C /* TSCategoryViewController.h */,
 				FDE920151E451054002EB48C /* TSCategoryViewController.m */,
+				FDB139831E461A41005DB54D /* TSSortChannelViewController.h */,
+				FDB139841E461A41005DB54D /* TSSortChannelViewController.m */,
+				FDB1397D1E460C72005DB54D /* TSLikedViewController.h */,
+				FDB1397E1E460C72005DB54D /* TSLikedViewController.m */,
+				FDB139801E460CCA005DB54D /* TSProgrammViewController.h */,
+				FDB139811E460CCA005DB54D /* TSProgrammViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -227,6 +244,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2ZQMG97HLH;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -316,14 +338,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1E85E41E436B18004CA4C1 /* TSTransportService.m in Sources */,
+				FDB139851E461A41005DB54D /* TSSortChannelViewController.m in Sources */,
 				FDE920091E448DBD002EB48C /* TSContentService.m in Sources */,
 				FD1E85D01E433A2F004CA4C1 /* AppDelegate.m in Sources */,
 				FDE9200C1E448ECD002EB48C /* TSDataService.m in Sources */,
+				FDB139821E460CCA005DB54D /* TSProgrammViewController.m in Sources */,
 				FDE920161E451054002EB48C /* TSCategoryViewController.m in Sources */,
 				FD1E85FD1E43B902004CA4C1 /* TSChanel.m in Sources */,
 				FD1E85EA1E436BFB004CA4C1 /* TSTabBarController.m in Sources */,
 				FDE920131E450F3F002EB48C /* TSCategory.m in Sources */,
 				FDE920101E44B8B5002EB48C /* TSChannelCell.m in Sources */,
+				FDB1397F1E460C72005DB54D /* TSLikedViewController.m in Sources */,
 				FD1E85CD1E433A2F004CA4C1 /* main.m in Sources */,
 				FD1E85ED1E436D63004CA4C1 /* TSChannelViewController.m in Sources */,
 			);

@@ -1,0 +1,18 @@
+
+//
+//  TSPrefixHeader.pch
+//  TV Channel Program
+//
+//  Created by Mac on 05.02.17.
+//  Copyright © 2017 Mac. All rights reserved.
+//
+
+#ifndef TSPrefixHeader_pch
+#define TSPrefixHeader_pch
+
+#define kSelectFavoritImage [UIImage imageNamed:@"favorite_select"]
+#define kNoSelectFavoritImage [UIImage imageNamed:@"favorite_no_select"]
+
+#define kBackgroundFetchInterval 21600
+
+#endif /* TSPrefixHeader_pch */

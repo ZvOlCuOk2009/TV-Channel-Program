@@ -1,78 +1,46 @@
 //
-//  TSChannelViewController.m
+//  TSSortChennelViewController.m
 //  TV Channel Program
 //
-//  Created by Mac on 02.02.17.
+//  Created by Mac on 04.02.17.
 //  Copyright © 2017 Mac. All rights reserved.
 //
 
-#import "TSChannelViewController.h"
-#import "TSContentService.h"
-#import "TSDataService.h"
-#import "TSChanel.h"
+#import "TSSortChannelViewController.h"
 #import "TSChannelCell.h"
+#import "TSChanel.h"
+#import "TSContentService.h"
 #import "TSPrefixHeader.pch"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 
-@interface TSChannelViewController ()
+@interface TSSortChannelViewController ()
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) TSContentService *contentService;
-@property (strong, nonatomic) NSArray *channels;
-@property (strong, nonatomic) NSArray *pictures;
-@property (strong, nonatomic) NSArray *indexFavorit;
-@property (strong, nonatomic) NSMutableArray *favoriteChannels;
-@property (strong, nonatomic) NSMutableArray *favoriteButtons;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (assign, nonatomic) NSInteger counter;
 
 @end
 
-@implementation TSChannelViewController
+@implementation TSSortChannelViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.topItem.title = @"";
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
     self.contentService = [[TSContentService alloc] init];
-    self.favoriteChannels = [NSMutableArray array];
-    self.favoriteButtons = [NSMutableArray array];
-    syncDatabase = 0;
-    [self startLoadChannels];
-    self.pictures = @[@"pictures1", @"pictures2", @"pictures3", @"pictures4", @"pictures5",@"pictures6",@"pictures7"];
+    self.counter = 0;
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-}
-
-- (void)startLoadChannels
-{
-    [self loadChannels];
-}
-
-#pragma mark - request to server
-
-- (void)loadChannels
-{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [SVProgressHUD show];
-        [self.contentService loadedChannels:^(NSArray *channels) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.channels = [NSArray arrayWithArray:channels];
-                [self.tableView reloadData];
-                [SVProgressHUD dismiss];
-            });
-        }];
-    });
+    [super viewWillAppear:animated];
+    self.navigationItem.title = self.nameCategory;
 }
 
 #pragma mark - Actions
-
-- (IBAction)syncPressedBarButtonItem:(id)sender
-{
-    syncDatabase = 1;
-    [self loadChannels];
-}
 
 - (IBAction)favoritPressedButton:(UIButton *)sender
 {
@@ -80,7 +48,8 @@
         [SVProgressHUD show];
         CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
         NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-        NSString *indexFavoriteChannel = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
+        TSChanel *channel = [self.sortChannels objectAtIndex:indexPath.row];
+        NSString *indexFavoriteChannel = [NSString stringWithFormat:@"%@", channel.ID];
         firstCall = 0;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.contentService loadFavoritChannelsInDatabase:indexFavoriteChannel];
@@ -93,7 +62,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.channels count];
+    return [self.sortChannels count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -110,7 +79,7 @@
 #pragma mark - Configure Cell
 
 - (void)configureCell:(TSChannelCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    TSChanel *channel = [self.channels objectAtIndex:indexPath.row];
+    TSChanel *channel = [self.sortChannels objectAtIndex:indexPath.row];
     cell.nameLabel.text = channel.name;
     [cell.pictures sd_setImageWithURL:[NSURL URLWithString:channel.pictures]
                      placeholderImage:[UIImage imageNamed:@"placeholder"]];
@@ -126,6 +95,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
 }
 
 - (void)didReceiveMemoryWarning {

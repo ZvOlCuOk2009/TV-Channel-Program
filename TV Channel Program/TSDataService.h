@@ -8,20 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol TSDataServiceDelegate <NSObject>
-
-- (void)loadDataFromDatabase:(NSArray *)dataSoure;
-
-@end
-
 @interface TSDataService : NSObject
-
-@property (weak, nonatomic) id <TSDataServiceDelegate> delegate;
 
 + (TSDataService *)sharedService;
 
 - (void)loadedChanels:(void(^)(NSArray *channels))success;
 - (void)loadedCategorys:(void(^)(NSArray *categorys))success;
-- (void)loadDataToDatabase:(NSArray *)responseObject;
+- (void)loadedFavoritChannels:(NSArray *)indexFavoritChannels;
+- (void)loadedIndexFavoritChannels:(NSString *)favoritIndex;
 
 @end

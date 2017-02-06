@@ -12,11 +12,13 @@
 
 + (NSMutableArray *)initWithSnapshot:(FIRDataSnapshot *)snapshot
 {
-    FIRDataSnapshot *dataBase = [snapshot childSnapshotForPath:@"tv"];
-    FIRDataSnapshot *categorySnaphot = dataBase.value[@"categorys"];
-    NSArray *dataSnaphot = (NSArray *)categorySnaphot;
+    NSString *fieldPath = [NSString stringWithFormat:@"tvBase/%@", [FIRAuth auth].currentUser.uid];
+    NSString *rootPath = [NSString stringWithFormat:@"%@/categorys", fieldPath];
+    FIRDataSnapshot *dataBase = [snapshot childSnapshotForPath:fieldPath];
     NSMutableArray *catigorys = nil;
-    if (dataSnaphot) {
+    if ([snapshot hasChild:rootPath]) {
+        FIRDataSnapshot *categorySnaphot = dataBase.value[@"categorys"];
+        NSArray *dataSnaphot = (NSArray *)categorySnaphot;
         catigorys = [NSMutableArray array];
         for (int i = 0; i < [dataSnaphot count]; i++) {
             TSCategory *catigory = [[TSCategory alloc] init];

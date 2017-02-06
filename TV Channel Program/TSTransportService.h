@@ -8,18 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol TSTransportServiceDelgate <NSObject>
-
-@optional;
-
-- (void)loadChannelsFromDatabase:(NSArray *)dataSource;
-- (void)loadCategorysFromDatabase:(NSArray *)dataSource;
-
-@end
-
 @interface TSTransportService : NSObject
-
-@property (weak, nonatomic) id <TSTransportServiceDelgate> delegate;
 
 + (TSTransportService *)sharedService;
 

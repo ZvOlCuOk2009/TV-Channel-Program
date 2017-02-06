@@ -1,78 +1,50 @@
 //
-//  TSChannelViewController.m
+//  TSLikedViewController.m
 //  TV Channel Program
 //
-//  Created by Mac on 02.02.17.
+//  Created by Mac on 04.02.17.
 //  Copyright © 2017 Mac. All rights reserved.
 //
 
-#import "TSChannelViewController.h"
-#import "TSContentService.h"
-#import "TSDataService.h"
-#import "TSChanel.h"
+#import "TSLikedViewController.h"
 #import "TSChannelCell.h"
+#import "TSChanel.h"
+#import "TSContentService.h"
 #import "TSPrefixHeader.pch"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 
-@interface TSChannelViewController ()
+@interface TSLikedViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *favoritChannels;
 @property (strong, nonatomic) TSContentService *contentService;
-@property (strong, nonatomic) NSArray *channels;
-@property (strong, nonatomic) NSArray *pictures;
-@property (strong, nonatomic) NSArray *indexFavorit;
-@property (strong, nonatomic) NSMutableArray *favoriteChannels;
-@property (strong, nonatomic) NSMutableArray *favoriteButtons;
+@property (assign, nonatomic) NSInteger activeController;
 
 @end
 
-@implementation TSChannelViewController
+@implementation TSLikedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.contentService = [[TSContentService alloc] init];
-    self.favoriteChannels = [NSMutableArray array];
-    self.favoriteButtons = [NSMutableArray array];
-    syncDatabase = 0;
-    [self startLoadChannels];
-    self.pictures = @[@"pictures1", @"pictures2", @"pictures3", @"pictures4", @"pictures5",@"pictures6",@"pictures7"];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadFavoritChannels];
+    self.activeController = 1;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-}
-
-- (void)startLoadChannels
-{
-    [self loadChannels];
-}
-
-#pragma mark - request to server
-
-- (void)loadChannels
-{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [SVProgressHUD show];
-        [self.contentService loadedChannels:^(NSArray *channels) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.channels = [NSArray arrayWithArray:channels];
-                [self.tableView reloadData];
-                [SVProgressHUD dismiss];
-            });
-        }];
-    });
+    self.activeController = 0;
 }
 
 #pragma mark - Actions
-
-- (IBAction)syncPressedBarButtonItem:(id)sender
-{
-    syncDatabase = 1;
-    [self loadChannels];
-}
 
 - (IBAction)favoritPressedButton:(UIButton *)sender
 {
@@ -80,7 +52,8 @@
         [SVProgressHUD show];
         CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
         NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-        NSString *indexFavoriteChannel = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
+        TSChanel *channel = [self.favoritChannels objectAtIndex:indexPath.row];
+        NSString *indexFavoriteChannel = [NSString stringWithFormat:@"%@", channel.ID];
         firstCall = 0;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.contentService loadFavoritChannelsInDatabase:indexFavoriteChannel];
@@ -89,11 +62,30 @@
     });
 }
 
+#pragma mark - request to data base
+
+- (void)loadFavoritChannels
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [SVProgressHUD show];
+        [self.contentService loadedSelectedFavoritChannels:^(NSArray *selectedChannels) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.favoritChannels = selectedChannels;
+                [self.tableView reloadData];
+                [SVProgressHUD dismiss];
+            });
+            if ([selectedChannels count] == 0) {
+                [self alertController];
+            }
+        }];
+    });
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.channels count];
+    return [self.favoritChannels count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -110,7 +102,7 @@
 #pragma mark - Configure Cell
 
 - (void)configureCell:(TSChannelCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    TSChanel *channel = [self.channels objectAtIndex:indexPath.row];
+    TSChanel *channel = [self.favoritChannels objectAtIndex:indexPath.row];
     cell.nameLabel.text = channel.name;
     [cell.pictures sd_setImageWithURL:[NSURL URLWithString:channel.pictures]
                      placeholderImage:[UIImage imageNamed:@"placeholder"]];
@@ -126,6 +118,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+#pragma mark - Alert
+
+- (void)alertController
+{
+    if (self.activeController == 1) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Здесь появятся избранные каналы"
+                                                                                 message:@""
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ок"
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:nil];
+        [alertController addAction:action];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

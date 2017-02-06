@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@import FirebaseAuth;
 @import FirebaseDatabase;
 
 @interface TSCategory : NSObject

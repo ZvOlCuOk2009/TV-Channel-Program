@@ -11,15 +11,17 @@
 #import "TSChannelCell.h"
 #import "TSCategory.h"
 #import "TSTransportService.h"
+#import "TSSortChannelViewController.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 
-@interface TSCategoryViewController () <TSTransportServiceDelgate>
+@interface TSCategoryViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *categorys;
 @property (strong, nonatomic) TSContentService *contentService;
+@property (assign, nonatomic) NSInteger counter;
 
 @end
 
@@ -27,15 +29,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    TSTransportService *transportService = [[TSTransportService alloc] init];
-    transportService.delegate = self;
     self.contentService = [[TSContentService alloc] init];
-    [self loadCatigory];
+    [self loadCategory];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationItem.title = @"Категории";
+    self.counter = 0;
 }
 
 #pragma mark - request to server
 
-- (void)loadCatigory
+- (void)loadCategory
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [SVProgressHUD show];
@@ -47,12 +54,6 @@
             });
         }];
     });
-}
-
-- (void)loadCategorysFromDatabase:(NSArray *)dataSource
-{
-    self.categorys = dataSource;
-    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -69,13 +70,17 @@
     if (!cell) {
         cell = [[TSChannelCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     }
+    [self configureCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+#pragma mark - Configure Cell
+
+- (void)configureCell:(TSChannelCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     TSCategory *category = [self.categorys objectAtIndex:indexPath.row];
     cell.nameLabel.text = category.name;
-//    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:category.pictures]]];
     [cell.pictures sd_setImageWithURL:[NSURL URLWithString:category.pictures]
                      placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    //cell.pictures.image = image;
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
@@ -83,6 +88,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [SVProgressHUD show];
+            [self.contentService loadListOfChannelsInCategoryes:indexPath.row + 1 onSuccess:^(NSMutableArray *listChannels) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (self.counter == 0) {
+                    TSSortChannelViewController *controller =
+                    [self.storyboard instantiateViewControllerWithIdentifier:@"TSSortChannelViewController"];
+                    controller.sortChannels = listChannels;
+                    TSCategory *category =
+                    [self.categorys objectAtIndex:indexPath.row];
+                    controller.nameCategory = category.name;
+                    [self.navigationController pushViewController:controller animated:YES];
+                    [SVProgressHUD dismiss];
+                    NSLog(@"TSCategoryViewController %ld", (long)self.counter);
+                    ++self.counter;
+                }
+            });
+        }];
+    });
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

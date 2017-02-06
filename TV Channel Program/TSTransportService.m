@@ -13,6 +13,7 @@
 #import <AFNetworking.h>
 
 @import Firebase;
+@import FirebaseAuth;
 @import FirebaseDatabase;
 
 @interface TSTransportService () 
@@ -44,6 +45,8 @@
     return self;
 }
 
+#pragma mark - API
+
 - (void)requestChannelsToServer
 {
     [self.sessionManager GET:@"http://52.50.138.211:8080/ChanelAPI/chanels"
@@ -69,15 +72,17 @@
                      }];
 }
 
+#pragma mark - save data in data base
+
 - (void)saveChannels:(NSArray *)responseObject
 {
-    [[[self.ref child:@"tv"] child:@"channels"] setValue:responseObject];
+    [[[[self.ref child:@"tvBase"] child:[FIRAuth auth].currentUser.uid] child:@"channels"] setValue:responseObject];
+    syncDatabase = 0;
 }
 
 - (void)saveCatigorys:(NSArray *)responseObject
 {
-    [[[self.ref child:@"tv"] child:@"categorys"] setValue:responseObject];
-    [self.delegate loadCategorysFromDatabase:responseObject];
+    [[[[self.ref child:@"tvBase"] child:[FIRAuth auth].currentUser.uid] child:@"categorys"] setValue:responseObject];
 }
 
 @end
