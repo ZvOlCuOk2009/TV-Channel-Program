@@ -54,11 +54,14 @@ NSInteger firstCall;
     }];
 }
 
-//сортировка программ по каналам
+//запрос с ервера, сохранение и сортировка программ по каналам. Осуществляется при каждом входе открытии приложения
 
-- (void)loadedTvProgrammById:(NSString *)timestamp byChannel:(NSInteger)channelID
+- (void)loadedTvProgrammCurrentTimestamp:(NSString *)timestamp byChannel:(NSInteger)channelID
                    inSuccess:(void(^)(NSArray *tvProgramm))success
 {
+    if (saveTvProgramm == 0) {
+        [[TSTransportService sharedService] requestTvProgrammToServer:timestamp];
+    }
     [[TSDataService sharedService] loadedTvProgramm:^(NSArray *programms) {
         if (programms) {
             NSMutableArray *sortProgramm = [NSMutableArray array];
@@ -68,9 +71,15 @@ NSInteger firstCall;
                 }
             }
             success(sortProgramm);
-        } else {
-            [[TSTransportService sharedService] requestTvProgrammToServer:timestamp];
         }
+    }];
+}
+
+- (void)loadedTvProgrammSelectedTimestamp:(NSString *)timestamp byChannel:(NSInteger)channelID
+                                inSuccess:(void(^)(NSArray *tvProgramm))success
+{
+    [[TSTransportService sharedService] loadedTvProgrammByTimestamp:timestamp insuccess:^(NSArray *programms) {
+        /////////////////
     }];
 }
 

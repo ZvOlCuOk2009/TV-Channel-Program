@@ -67,6 +67,8 @@
     }];
 }
 
+//получение программы на сегодня
+
 - (void)loadedTvProgramm:(void(^)(NSArray *programms))success
 {
     [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {

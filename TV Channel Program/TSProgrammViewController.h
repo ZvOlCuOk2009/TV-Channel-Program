@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TSChannelViewController.h"
 
-@interface TSProgrammViewController : UIViewController
+@interface TSProgrammViewController : TSChannelViewController
 
 @end

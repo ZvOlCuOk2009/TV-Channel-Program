@@ -15,10 +15,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 
+NSInteger alert;
+
 @interface TSProgrammChannelViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) TSContentService *contentService;
 @property (strong, nonatomic) NSArray *tvProgramms;
 
 @end
@@ -31,18 +32,19 @@
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
     self.contentService = [[TSContentService alloc] init];
     [self loadTvProgramm];
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 185, 0);
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    [backItem setImage:[UIImage imageNamed:@"back"]];
-    [backItem setTarget:self];
-    [backItem setAction:@selector(cancelInteraction)];
-    self.navigationItem.leftBarButtonItem = backItem;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 188, 0);
+    self.backItem = [[UIBarButtonItem alloc] init];
+    [self.backItem setImage:[UIImage imageNamed:@"back"]];
+    [self.backItem setTarget:self];
+    [self.backItem setAction:@selector(cancelInteraction)];
+    self.navigationItem.leftBarButtonItem = self.backItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationItem.title = self.nameChannel;
+    alert = 0;
 }
 
 - (void)cancelInteraction
@@ -58,12 +60,13 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [SVProgressHUD show];
         NSString * timestamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970] * 1000];
-        [self.contentService loadedTvProgrammById:timestamp byChannel:self.idChannel inSuccess:^(NSArray *tvProgramm) {
+        [self.contentService loadedTvProgrammCurrentTimestamp:timestamp
+                                                    byChannel:self.idChannel inSuccess:^(NSArray *tvProgramm) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.tvProgramms = tvProgramm;
                 [self.tableView reloadData];
                 [SVProgressHUD dismiss];
-                if ([self.tvProgramms count] <= 1) {
+                if ([self.tvProgramms count] <= 1 && alert == 0) {
                     [self alertController];
                 }
             });

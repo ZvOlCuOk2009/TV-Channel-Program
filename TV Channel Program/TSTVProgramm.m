@@ -12,7 +12,7 @@
 
 + (NSMutableArray *)initWithSnapshot:(FIRDataSnapshot *)snapshot
 {
-    NSString *fieldPath = [NSString stringWithFormat:@"tvBase/%@", [FIRAuth auth].currentUser.uid];
+    NSString *fieldPath = [NSString stringWithFormat:@"tvProgramm/%@", [FIRAuth auth].currentUser.uid];
     NSString *rootPath = [NSString stringWithFormat:@"%@/tvProgramm", fieldPath];
     FIRDataSnapshot *dataBase = [snapshot childSnapshotForPath:fieldPath];
     NSMutableArray *tvProgramms = nil;

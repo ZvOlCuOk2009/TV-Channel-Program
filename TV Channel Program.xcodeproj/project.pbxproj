@@ -19,10 +19,10 @@
 		FD1E85F11E437C11004CA4C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD1E85F01E437C11004CA4C1 /* GoogleService-Info.plist */; };
 		FD1E85F91E439981004CA4C1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1E85F81E439981004CA4C1 /* AdSupport.framework */; };
 		FD1E85FD1E43B902004CA4C1 /* TSChanel.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85FC1E43B902004CA4C1 /* TSChanel.m */; };
+		FD3809141E4A5ED5009CB8B0 /* TSSelectedProgrammViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3809131E4A5ED5009CB8B0 /* TSSelectedProgrammViewController.m */; };
 		FDB1397F1E460C72005DB54D /* TSLikedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB1397E1E460C72005DB54D /* TSLikedViewController.m */; };
 		FDB139821E460CCA005DB54D /* TSProgrammViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB139811E460CCA005DB54D /* TSProgrammViewController.m */; };
 		FDB139851E461A41005DB54D /* TSSortChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB139841E461A41005DB54D /* TSSortChannelViewController.m */; };
-		FDB6F9471E489F2300F6A82B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB6F9461E489F2300F6A82B /* Reachability.m */; };
 		FDB6F94A1E48ACDE00F6A82B /* TSTVProgramm.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB6F9491E48ACDE00F6A82B /* TSTVProgramm.m */; };
 		FDB6F94D1E4930E400F6A82B /* TSProgrammChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB6F94C1E4930E400F6A82B /* TSProgrammChannelViewController.m */; };
 		FDB6F9501E4931E100F6A82B /* TSProgrammCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB6F94F1E4931E100F6A82B /* TSProgrammCell.m */; };
@@ -56,14 +56,14 @@
 		FD1E85F81E439981004CA4C1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		FD1E85FB1E43B902004CA4C1 /* TSChanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSChanel.h; sourceTree = "<group>"; };
 		FD1E85FC1E43B902004CA4C1 /* TSChanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSChanel.m; sourceTree = "<group>"; };
+		FD3809121E4A5ED5009CB8B0 /* TSSelectedProgrammViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSelectedProgrammViewController.h; sourceTree = "<group>"; };
+		FD3809131E4A5ED5009CB8B0 /* TSSelectedProgrammViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSelectedProgrammViewController.m; sourceTree = "<group>"; };
 		FDB1397D1E460C72005DB54D /* TSLikedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSLikedViewController.h; sourceTree = "<group>"; };
 		FDB1397E1E460C72005DB54D /* TSLikedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSLikedViewController.m; sourceTree = "<group>"; };
 		FDB139801E460CCA005DB54D /* TSProgrammViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSProgrammViewController.h; sourceTree = "<group>"; };
 		FDB139811E460CCA005DB54D /* TSProgrammViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSProgrammViewController.m; sourceTree = "<group>"; };
 		FDB139831E461A41005DB54D /* TSSortChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSortChannelViewController.h; sourceTree = "<group>"; };
 		FDB139841E461A41005DB54D /* TSSortChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSortChannelViewController.m; sourceTree = "<group>"; };
-		FDB6F9451E489F2300F6A82B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		FDB6F9461E489F2300F6A82B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FDB6F9481E48ACDE00F6A82B /* TSTVProgramm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTVProgramm.h; sourceTree = "<group>"; };
 		FDB6F9491E48ACDE00F6A82B /* TSTVProgramm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTVProgramm.m; sourceTree = "<group>"; };
 		FDB6F94B1E4930E400F6A82B /* TSProgrammChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSProgrammChannelViewController.h; sourceTree = "<group>"; };
@@ -135,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				FD1E85E61E436BBC004CA4C1 /* App */,
-				FDB6F9441E489F0000F6A82B /* Reachability */,
 				FD1E85FA1E43B8B8004CA4C1 /* Models */,
 				FD1E85E51E436B1F004CA4C1 /* Services */,
 				FDE9200D1E44B880002EB48C /* Cells */,
@@ -198,6 +197,8 @@
 				FDB1397E1E460C72005DB54D /* TSLikedViewController.m */,
 				FDB139801E460CCA005DB54D /* TSProgrammViewController.h */,
 				FDB139811E460CCA005DB54D /* TSProgrammViewController.m */,
+				FD3809121E4A5ED5009CB8B0 /* TSSelectedProgrammViewController.h */,
+				FD3809131E4A5ED5009CB8B0 /* TSSelectedProgrammViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -213,15 +214,6 @@
 				FDB6F9491E48ACDE00F6A82B /* TSTVProgramm.m */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		FDB6F9441E489F0000F6A82B /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				FDB6F9451E489F2300F6A82B /* Reachability.h */,
-				FDB6F9461E489F2300F6A82B /* Reachability.m */,
-			);
-			name = Reachability;
 			sourceTree = "<group>";
 		};
 		FDE9200D1E44B880002EB48C /* Cells */ = {
@@ -366,11 +358,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1E85E41E436B18004CA4C1 /* TSTransportService.m in Sources */,
+				FD3809141E4A5ED5009CB8B0 /* TSSelectedProgrammViewController.m in Sources */,
 				FDB6F9501E4931E100F6A82B /* TSProgrammCell.m in Sources */,
 				FDB139851E461A41005DB54D /* TSSortChannelViewController.m in Sources */,
 				FDE920091E448DBD002EB48C /* TSContentService.m in Sources */,
 				FD1E85D01E433A2F004CA4C1 /* AppDelegate.m in Sources */,
-				FDB6F9471E489F2300F6A82B /* Reachability.m in Sources */,
 				FDB6F94D1E4930E400F6A82B /* TSProgrammChannelViewController.m in Sources */,
 				FDE9200C1E448ECD002EB48C /* TSDataService.m in Sources */,
 				FDB139821E460CCA005DB54D /* TSProgrammViewController.m in Sources */,

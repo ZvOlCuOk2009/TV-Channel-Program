@@ -16,4 +16,7 @@
 - (void)requestCategorysToServer;
 - (void)requestTvProgrammToServer:(NSString *)timestamp;
 
+- (void)loadedTvProgrammByTimestamp:(NSString *)timestamp
+                          insuccess:(void(^)(NSArray *programms))success;
+
 @end

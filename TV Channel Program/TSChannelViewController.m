@@ -18,11 +18,12 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 
+NSInteger saveTvProgramm;
+
 @interface TSChannelViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) TSContentService *contentService;
-@property (strong, nonatomic) NSArray *channels;
 @property (strong, nonatomic) NSArray *tvProgramm;
 @property (strong, nonatomic) NSArray *indexFavorit;
 @property (strong, nonatomic) NSMutableArray *favoriteChannels;
@@ -52,6 +53,7 @@
     self.favoriteChannels = [NSMutableArray array];
     self.favoriteButtons = [NSMutableArray array];
     syncDatabase = 0;
+    saveTvProgramm = 0;
     [self startLoadChannels];
 }
 

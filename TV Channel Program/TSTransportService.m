@@ -88,6 +88,22 @@
                      }];
 }
 
+//получение программы дату указанно пользователем
+
+- (void)loadedTvProgrammByTimestamp:(NSString *)timestamp
+                          insuccess:(void(^)(NSArray *programms))success
+{
+    [self.sessionManager GET:timestamp
+                  parameters:nil
+                    progress:nil
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                         [self saveTvProgramm:responseObject];
+                         NSLog(@"responseObject %@", responseObject);
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"error %@", error.localizedDescription);
+                     }];
+}
+
 #pragma mark - save data in data base
 
 - (void)saveChannels:(NSArray *)responseObject
@@ -103,9 +119,8 @@
 
 - (void)saveTvProgramm:(NSArray *)responseObject
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[[[self.ref child:@"tvBase"] child:[FIRAuth auth].currentUser.uid] child:@"tvProgramm"] setValue:responseObject];
-    });
+    [[[[self.ref child:@"tvProgramm"] child:[FIRAuth auth].currentUser.uid] child:@"tvProgramm"] setValue:responseObject];
+    saveTvProgramm = 1;
 }
 
 @end

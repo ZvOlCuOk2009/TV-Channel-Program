@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSInteger saveTvProgramm;
+
 @interface TSChannelViewController : UIViewController
+
+@property (strong, nonatomic) NSArray *channels;
 
 @end

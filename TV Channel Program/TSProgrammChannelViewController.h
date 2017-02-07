@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSInteger alert;
+
+@class TSContentService;
+
 @interface TSProgrammChannelViewController : UIViewController
 
 @property (strong, nonatomic) NSString *nameChannel;
 @property (strong, nonatomic) NSString *pictures;
 @property (assign, nonatomic) NSInteger idChannel;
+@property (strong, nonatomic) UIBarButtonItem *backItem;
+@property (strong, nonatomic) TSContentService *contentService;
 
 @end
