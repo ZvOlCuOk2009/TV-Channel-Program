@@ -21,7 +21,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *categorys;
 @property (strong, nonatomic) TSContentService *contentService;
-@property (assign, nonatomic) NSInteger counter;
 
 @end
 
@@ -37,7 +36,6 @@
 {
     [super viewWillAppear:animated];
     self.navigationItem.title = @"Категории";
-    self.counter = 0;
 }
 
 #pragma mark - request to server
@@ -92,18 +90,14 @@
             [SVProgressHUD show];
             [self.contentService loadListOfChannelsInCategoryes:indexPath.row + 1 onSuccess:^(NSMutableArray *listChannels) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.counter == 0) {
-                    TSSortChannelViewController *controller =
-                    [self.storyboard instantiateViewControllerWithIdentifier:@"TSSortChannelViewController"];
-                    controller.sortChannels = listChannels;
-                    TSCategory *category =
-                    [self.categorys objectAtIndex:indexPath.row];
-                    controller.nameCategory = category.name;
-                    [self.navigationController pushViewController:controller animated:YES];
-                    [SVProgressHUD dismiss];
-                    NSLog(@"TSCategoryViewController %ld", (long)self.counter);
-                    ++self.counter;
-                }
+                TSSortChannelViewController *controller =
+                [self.storyboard instantiateViewControllerWithIdentifier:@"TSSortChannelViewController"];
+                controller.sortChannels = listChannels;
+                TSCategory *category =
+                [self.categorys objectAtIndex:indexPath.row];
+                controller.nameCategory = category.name;
+                [self.navigationController pushViewController:controller animated:NO];
+                [SVProgressHUD dismiss];
             });
         }];
     });

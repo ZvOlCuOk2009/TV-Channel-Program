@@ -20,8 +20,6 @@
 @property (strong, nonatomic) TSContentService *contentService;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-@property (assign, nonatomic) NSInteger counter;
-
 @end
 
 @implementation TSSortChannelViewController
@@ -31,13 +29,23 @@
     self.navigationController.navigationBar.topItem.title = @"";
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
     self.contentService = [[TSContentService alloc] init];
-    self.counter = 0;
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    [backItem setImage:[UIImage imageNamed:@"back"]];
+    [backItem setTarget:self];
+    [backItem setAction:@selector(cancelInteraction)];
+    self.navigationItem.leftBarButtonItem = backItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationItem.title = self.nameCategory;
+}
+
+- (void)cancelInteraction
+{
+    [self.navigationController popToViewController:[self.navigationController.viewControllers firstObject]
+                                          animated:YES];
 }
 
 #pragma mark - Actions

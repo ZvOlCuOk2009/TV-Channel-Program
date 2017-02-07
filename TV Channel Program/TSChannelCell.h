@@ -11,6 +11,7 @@
 @interface TSChannelCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *pictures;
 @property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
 

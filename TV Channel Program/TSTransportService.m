@@ -9,6 +9,7 @@
 #import "TSTransportService.h"
 #import "TSContentService.h"
 #import "TSChanel.h"
+#import "TSChannelViewController.h"
 
 #import <AFNetworking.h>
 
@@ -72,6 +73,21 @@
                      }];
 }
 
+- (void)requestTvProgrammToServer:(NSString *)timestamp
+{
+    NSString *timeStamp =
+    [NSString stringWithFormat:@"http://52.50.138.211:8080/ChanelAPI/programs/%@", timestamp];
+    [self.sessionManager GET:timeStamp
+                  parameters:nil
+                    progress:nil
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                         [self saveTvProgramm:responseObject];
+                         NSLog(@"responseObject %@", responseObject);
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         NSLog(@"error %@", error.localizedDescription);
+                     }];
+}
+
 #pragma mark - save data in data base
 
 - (void)saveChannels:(NSArray *)responseObject
@@ -83,6 +99,13 @@
 - (void)saveCatigorys:(NSArray *)responseObject
 {
     [[[[self.ref child:@"tvBase"] child:[FIRAuth auth].currentUser.uid] child:@"categorys"] setValue:responseObject];
+}
+
+- (void)saveTvProgramm:(NSArray *)responseObject
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[[[self.ref child:@"tvBase"] child:[FIRAuth auth].currentUser.uid] child:@"tvProgramm"] setValue:responseObject];
+    });
 }
 
 @end

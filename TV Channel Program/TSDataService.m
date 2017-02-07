@@ -10,6 +10,7 @@
 #import "TSContentService.h"
 #import "TSChanel.h"
 #import "TSCategory.h"
+#import "TSTVProgramm.h"
 #import "TSChannelViewController.h"
 
 @import Firebase;
@@ -44,7 +45,7 @@
 
 #pragma mark - parsing
 
-//получение каналов и категорий
+//получение каналов, категорий и ТВ программ
 
 - (void)loadedChanels:(void(^)(NSArray *chanels))success
 {
@@ -62,6 +63,16 @@
         NSArray *categorys = [TSCategory initWithSnapshot:snapshot];
         if (success) {
             success(categorys);
+        }
+    }];
+}
+
+- (void)loadedTvProgramm:(void(^)(NSArray *programms))success
+{
+    [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSArray *tvProgramm = [TSTVProgramm initWithSnapshot:snapshot];
+        if (success) {
+            success(tvProgramm);
         }
     }];
 }

@@ -22,6 +22,10 @@
 		FDB1397F1E460C72005DB54D /* TSLikedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB1397E1E460C72005DB54D /* TSLikedViewController.m */; };
 		FDB139821E460CCA005DB54D /* TSProgrammViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB139811E460CCA005DB54D /* TSProgrammViewController.m */; };
 		FDB139851E461A41005DB54D /* TSSortChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB139841E461A41005DB54D /* TSSortChannelViewController.m */; };
+		FDB6F9471E489F2300F6A82B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB6F9461E489F2300F6A82B /* Reachability.m */; };
+		FDB6F94A1E48ACDE00F6A82B /* TSTVProgramm.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB6F9491E48ACDE00F6A82B /* TSTVProgramm.m */; };
+		FDB6F94D1E4930E400F6A82B /* TSProgrammChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB6F94C1E4930E400F6A82B /* TSProgrammChannelViewController.m */; };
+		FDB6F9501E4931E100F6A82B /* TSProgrammCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB6F94F1E4931E100F6A82B /* TSProgrammCell.m */; };
 		FDE920091E448DBD002EB48C /* TSContentService.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE920081E448DBD002EB48C /* TSContentService.m */; };
 		FDE9200C1E448ECD002EB48C /* TSDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE9200B1E448ECD002EB48C /* TSDataService.m */; };
 		FDE920101E44B8B5002EB48C /* TSChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE9200F1E44B8B5002EB48C /* TSChannelCell.m */; };
@@ -58,6 +62,14 @@
 		FDB139811E460CCA005DB54D /* TSProgrammViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSProgrammViewController.m; sourceTree = "<group>"; };
 		FDB139831E461A41005DB54D /* TSSortChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSortChannelViewController.h; sourceTree = "<group>"; };
 		FDB139841E461A41005DB54D /* TSSortChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSortChannelViewController.m; sourceTree = "<group>"; };
+		FDB6F9451E489F2300F6A82B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		FDB6F9461E489F2300F6A82B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FDB6F9481E48ACDE00F6A82B /* TSTVProgramm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTVProgramm.h; sourceTree = "<group>"; };
+		FDB6F9491E48ACDE00F6A82B /* TSTVProgramm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTVProgramm.m; sourceTree = "<group>"; };
+		FDB6F94B1E4930E400F6A82B /* TSProgrammChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSProgrammChannelViewController.h; sourceTree = "<group>"; };
+		FDB6F94C1E4930E400F6A82B /* TSProgrammChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSProgrammChannelViewController.m; sourceTree = "<group>"; };
+		FDB6F94E1E4931E100F6A82B /* TSProgrammCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSProgrammCell.h; sourceTree = "<group>"; };
+		FDB6F94F1E4931E100F6A82B /* TSProgrammCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSProgrammCell.m; sourceTree = "<group>"; };
 		FDE920071E448DBD002EB48C /* TSContentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSContentService.h; sourceTree = "<group>"; };
 		FDE920081E448DBD002EB48C /* TSContentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSContentService.m; sourceTree = "<group>"; };
 		FDE9200A1E448ECD002EB48C /* TSDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDataService.h; sourceTree = "<group>"; };
@@ -123,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1E85E61E436BBC004CA4C1 /* App */,
+				FDB6F9441E489F0000F6A82B /* Reachability */,
 				FD1E85FA1E43B8B8004CA4C1 /* Models */,
 				FD1E85E51E436B1F004CA4C1 /* Services */,
 				FDE9200D1E44B880002EB48C /* Cells */,
@@ -175,6 +188,8 @@
 				FD1E85E91E436BFB004CA4C1 /* TSTabBarController.m */,
 				FD1E85EB1E436D63004CA4C1 /* TSChannelViewController.h */,
 				FD1E85EC1E436D63004CA4C1 /* TSChannelViewController.m */,
+				FDB6F94B1E4930E400F6A82B /* TSProgrammChannelViewController.h */,
+				FDB6F94C1E4930E400F6A82B /* TSProgrammChannelViewController.m */,
 				FDE920141E451054002EB48C /* TSCategoryViewController.h */,
 				FDE920151E451054002EB48C /* TSCategoryViewController.m */,
 				FDB139831E461A41005DB54D /* TSSortChannelViewController.h */,
@@ -194,8 +209,19 @@
 				FD1E85FC1E43B902004CA4C1 /* TSChanel.m */,
 				FDE920111E450F3F002EB48C /* TSCategory.h */,
 				FDE920121E450F3F002EB48C /* TSCategory.m */,
+				FDB6F9481E48ACDE00F6A82B /* TSTVProgramm.h */,
+				FDB6F9491E48ACDE00F6A82B /* TSTVProgramm.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FDB6F9441E489F0000F6A82B /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				FDB6F9451E489F2300F6A82B /* Reachability.h */,
+				FDB6F9461E489F2300F6A82B /* Reachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 		FDE9200D1E44B880002EB48C /* Cells */ = {
@@ -203,6 +229,8 @@
 			children = (
 				FDE9200E1E44B8B5002EB48C /* TSChannelCell.h */,
 				FDE9200F1E44B8B5002EB48C /* TSChannelCell.m */,
+				FDB6F94E1E4931E100F6A82B /* TSProgrammCell.h */,
+				FDB6F94F1E4931E100F6A82B /* TSProgrammCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -338,9 +366,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1E85E41E436B18004CA4C1 /* TSTransportService.m in Sources */,
+				FDB6F9501E4931E100F6A82B /* TSProgrammCell.m in Sources */,
 				FDB139851E461A41005DB54D /* TSSortChannelViewController.m in Sources */,
 				FDE920091E448DBD002EB48C /* TSContentService.m in Sources */,
 				FD1E85D01E433A2F004CA4C1 /* AppDelegate.m in Sources */,
+				FDB6F9471E489F2300F6A82B /* Reachability.m in Sources */,
+				FDB6F94D1E4930E400F6A82B /* TSProgrammChannelViewController.m in Sources */,
 				FDE9200C1E448ECD002EB48C /* TSDataService.m in Sources */,
 				FDB139821E460CCA005DB54D /* TSProgrammViewController.m in Sources */,
 				FDE920161E451054002EB48C /* TSCategoryViewController.m in Sources */,
@@ -351,6 +382,7 @@
 				FDB1397F1E460C72005DB54D /* TSLikedViewController.m in Sources */,
 				FD1E85CD1E433A2F004CA4C1 /* main.m in Sources */,
 				FD1E85ED1E436D63004CA4C1 /* TSChannelViewController.m in Sources */,
+				FDB6F94A1E48ACDE00F6A82B /* TSTVProgramm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

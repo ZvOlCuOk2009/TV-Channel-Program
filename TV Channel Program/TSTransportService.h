@@ -14,5 +14,6 @@
 
 - (void)requestChannelsToServer;
 - (void)requestCategorysToServer;
+- (void)requestTvProgrammToServer:(NSString *)timestamp;
 
 @end

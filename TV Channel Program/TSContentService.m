@@ -10,6 +10,8 @@
 #import "TSTransportService.h"
 #import "TSDataService.h"
 #import "TSChanel.h"
+#import "TSTVProgramm.h"
+#import "TSChannelViewController.h"
 
 NSInteger syncDatabase;
 NSInteger firstCall;
@@ -48,6 +50,26 @@ NSInteger firstCall;
             success(categorys);
         } else {
             [[TSTransportService sharedService] requestCategorysToServer];
+        }
+    }];
+}
+
+//сортировка программ по каналам
+
+- (void)loadedTvProgrammById:(NSString *)timestamp byChannel:(NSInteger)channelID
+                   inSuccess:(void(^)(NSArray *tvProgramm))success
+{
+    [[TSDataService sharedService] loadedTvProgramm:^(NSArray *programms) {
+        if (programms) {
+            NSMutableArray *sortProgramm = [NSMutableArray array];
+            for (TSTVProgramm *programm in programms) {
+                if (channelID == [programm.channelID integerValue]) {
+                    [sortProgramm addObject:programm];
+                }
+            }
+            success(sortProgramm);
+        } else {
+            [[TSTransportService sharedService] requestTvProgrammToServer:timestamp];
         }
     }];
 }

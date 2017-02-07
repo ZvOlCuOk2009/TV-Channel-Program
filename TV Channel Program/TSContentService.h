@@ -15,6 +15,8 @@ extern NSInteger firstCall;
 
 - (void)loadedChannels:(void(^)(NSArray *channels))success;
 - (void)loadedCategorys:(void(^)(NSArray *catigorys))success;
+- (void)loadedTvProgrammById:(NSString *)timestamp byChannel:(NSInteger)channelID
+                   inSuccess:(void(^)(NSArray *tvProgramm))success;
 - (void)loadListOfChannelsInCategoryes:(NSInteger)indexPath
                              onSuccess:(void(^)(NSMutableArray *listChannels))success;
 - (void)loadedSelectedFavoritChannels:(void(^)(NSArray *selectedChannels))success;

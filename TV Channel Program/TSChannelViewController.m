@@ -10,7 +10,9 @@
 #import "TSContentService.h"
 #import "TSDataService.h"
 #import "TSChanel.h"
+#import "TSTVProgramm.h"
 #import "TSChannelCell.h"
+#import "TSProgrammChannelViewController.h"
 #import "TSPrefixHeader.pch"
 
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -21,7 +23,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) TSContentService *contentService;
 @property (strong, nonatomic) NSArray *channels;
-@property (strong, nonatomic) NSArray *pictures;
+@property (strong, nonatomic) NSArray *tvProgramm;
 @property (strong, nonatomic) NSArray *indexFavorit;
 @property (strong, nonatomic) NSMutableArray *favoriteChannels;
 @property (strong, nonatomic) NSMutableArray *favoriteButtons;
@@ -32,12 +34,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    NSInteger date = (47 * 365 * 24 * 60 * 60) + (42 * 24 * 60 * 60);
+//    NSString * timestamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970] * 86400];
+//    
+//    NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
+//    [objDateformat setDateFormat:@"yyyy-MM-dd"];
+//    NSString *strTime = [objDateformat stringFromDate:[NSDate date]];
+//    NSString *strUTCTime = [self GetUTCDateTimeFromLocalTime:strTime];
+//    NSDate *objUTCDate  = [objDateformat dateFromString:strUTCTime];
+//    long long milliseconds = (long long)([objUTCDate timeIntervalSince1970] * 1000.0);
+//    
+//    NSInteger day = 86400;
+//    
+//    NSString *currDate = [NSString stringWithFormat:@"%.0f", ([[NSDate date] timeIntervalSince1970] + day) * 1000];
+    
     self.contentService = [[TSContentService alloc] init];
     self.favoriteChannels = [NSMutableArray array];
     self.favoriteButtons = [NSMutableArray array];
     syncDatabase = 0;
     [self startLoadChannels];
-    self.pictures = @[@"pictures1", @"pictures2", @"pictures3", @"pictures4", @"pictures5",@"pictures6",@"pictures7"];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationItem.title = @"Каналы";
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -126,6 +147,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    TSProgrammChannelViewController *controller =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"TSProgrammChannelViewController"];
+    TSChanel *channel = [self.channels objectAtIndex:indexPath.row];
+    controller.nameChannel = channel.name;
+    controller.pictures = channel.pictures;
+    controller.idChannel = [channel.ID integerValue];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
