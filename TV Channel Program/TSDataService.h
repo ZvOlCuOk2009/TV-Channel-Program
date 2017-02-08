@@ -16,11 +16,11 @@
 - (void)loadedCategorys:(void(^)(NSArray *categorys))success;
 - (void)loadedTvProgramm:(void(^)(NSArray *programms))success;
 
-- (void)loadedTvProgrammByTimestamp:(NSString *)timestamp
-                          byChannel:(NSInteger)channelID
-                          insuccess:(void(^)(NSArray *programms))success;
+//- (void)loadedTvProgrammByTimestamp:(NSString *)timestamp
+//                          byChannel:(NSInteger)channelID
+//                          insuccess:(void(^)(NSArray *programms))success;
 
 - (void)loadedFavoritChannels:(NSArray *)indexFavoritChannels;
 - (void)loadedIndexFavoritChannels:(NSString *)favoritIndex;
-
+- (void)syncReceivedDatabase:(NSArray *)responseObject;
 @end

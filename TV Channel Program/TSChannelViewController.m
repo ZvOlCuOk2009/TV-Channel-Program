@@ -19,6 +19,7 @@
 #import <SVProgressHUD.h>
 
 NSInteger saveTvProgramm;
+BOOL syncReceived;
 
 @interface TSChannelViewController ()
 
@@ -35,20 +36,6 @@ NSInteger saveTvProgramm;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSInteger date = (47 * 365 * 24 * 60 * 60) + (42 * 24 * 60 * 60);
-//    NSString * timestamp = [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970] * 86400];
-//    
-//    NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
-//    [objDateformat setDateFormat:@"yyyy-MM-dd"];
-//    NSString *strTime = [objDateformat stringFromDate:[NSDate date]];
-//    NSString *strUTCTime = [self GetUTCDateTimeFromLocalTime:strTime];
-//    NSDate *objUTCDate  = [objDateformat dateFromString:strUTCTime];
-//    long long milliseconds = (long long)([objUTCDate timeIntervalSince1970] * 1000.0);
-//    
-//    NSInteger day = 86400;
-//    
-//    NSString *currDate = [NSString stringWithFormat:@"%.0f", ([[NSDate date] timeIntervalSince1970] + day) * 1000];
-    
     self.contentService = [[TSContentService alloc] init];
     self.favoriteChannels = [NSMutableArray array];
     self.favoriteButtons = [NSMutableArray array];
@@ -94,6 +81,7 @@ NSInteger saveTvProgramm;
 - (IBAction)syncPressedBarButtonItem:(id)sender
 {
     syncDatabase = 1;
+    syncReceived = YES;
     [self loadChannels];
 }
 

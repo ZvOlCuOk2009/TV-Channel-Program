@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01BEAA085DF66379043FD543 /* libPods-TV Channel Program.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8ECAD6E44AA6B9E0C54AF4 /* libPods-TV Channel Program.a */; };
+		FD0CA0B81E4B9709000A9317 /* TSTVSelectedProgramm.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0CA0B71E4B9709000A9317 /* TSTVSelectedProgramm.m */; };
 		FD1E85CD1E433A2F004CA4C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85CC1E433A2F004CA4C1 /* main.m */; };
 		FD1E85D01E433A2F004CA4C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1E85CF1E433A2F004CA4C1 /* AppDelegate.m */; };
 		FD1E85D61E433A2F004CA4C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1E85D41E433A2F004CA4C1 /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 		2A8ECAD6E44AA6B9E0C54AF4 /* libPods-TV Channel Program.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TV Channel Program.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70F28DFE8FAAFD3AB407FB5 /* Pods-TV Channel Program.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Channel Program.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TV Channel Program/Pods-TV Channel Program.debug.xcconfig"; sourceTree = "<group>"; };
 		FD01565A1E4767B10082E1BC /* TSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSPrefixHeader.pch; sourceTree = "<group>"; };
+		FD0CA0B61E4B9709000A9317 /* TSTVSelectedProgramm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTVSelectedProgramm.h; sourceTree = "<group>"; };
+		FD0CA0B71E4B9709000A9317 /* TSTVSelectedProgramm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTVSelectedProgramm.m; sourceTree = "<group>"; };
 		FD1E85C81E433A2F004CA4C1 /* TV Channel Program.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV Channel Program.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1E85CC1E433A2F004CA4C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD1E85CE1E433A2F004CA4C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				FDE920121E450F3F002EB48C /* TSCategory.m */,
 				FDB6F9481E48ACDE00F6A82B /* TSTVProgramm.h */,
 				FDB6F9491E48ACDE00F6A82B /* TSTVProgramm.m */,
+				FD0CA0B61E4B9709000A9317 /* TSTVSelectedProgramm.h */,
+				FD0CA0B71E4B9709000A9317 /* TSTVSelectedProgramm.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				FD1E85CD1E433A2F004CA4C1 /* main.m in Sources */,
 				FD1E85ED1E436D63004CA4C1 /* TSChannelViewController.m in Sources */,
 				FDB6F94A1E48ACDE00F6A82B /* TSTVProgramm.m in Sources */,
+				FD0CA0B81E4B9709000A9317 /* TSTVSelectedProgramm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

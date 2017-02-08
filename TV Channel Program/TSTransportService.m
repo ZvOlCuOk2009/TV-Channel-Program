@@ -8,6 +8,7 @@
 
 #import "TSTransportService.h"
 #import "TSContentService.h"
+#import "TSDataService.h"
 #import "TSChanel.h"
 #import "TSChannelViewController.h"
 
@@ -75,9 +76,9 @@
 
 - (void)requestTvProgrammToServer:(NSString *)timestamp
 {
-    NSString *timeStamp =
+    NSString *urlCerrentProgramm =
     [NSString stringWithFormat:@"http://52.50.138.211:8080/ChanelAPI/programs/%@", timestamp];
-    [self.sessionManager GET:timeStamp
+    [self.sessionManager GET:urlCerrentProgramm
                   parameters:nil
                     progress:nil
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -93,23 +94,31 @@
 - (void)loadedTvProgrammByTimestamp:(NSString *)timestamp
                           insuccess:(void(^)(NSArray *programms))success
 {
-    [self.sessionManager GET:timestamp
+    NSString *urlSelectedProgramm =
+    [NSString stringWithFormat:@"http://52.50.138.211:8080/ChanelAPI/programs/%@", timestamp];
+    [self.sessionManager GET:urlSelectedProgramm
                   parameters:nil
                     progress:nil
                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                         [self saveTvProgramm:responseObject];
+                         if (success) {
+                             success(responseObject);
+                         }
                          NSLog(@"responseObject %@", responseObject);
                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                          NSLog(@"error %@", error.localizedDescription);
                      }];
 }
 
-#pragma mark - save data in data base
+#pragma mark - save data in database
 
 - (void)saveChannels:(NSArray *)responseObject
 {
-    [[[[self.ref child:@"tvBase"] child:[FIRAuth auth].currentUser.uid] child:@"channels"] setValue:responseObject];
-    syncDatabase = 0;
+    if (syncDatabase == 0) {
+        [[[[self.ref child:@"tvBase"] child:[FIRAuth auth].currentUser.uid] child:@"channels"] setValue:responseObject];
+    } else if (syncDatabase == 1) {
+        [self syncReceivedDatabase:responseObject];
+        syncDatabase = 0;
+    }
 }
 
 - (void)saveCatigorys:(NSArray *)responseObject
@@ -121,6 +130,13 @@
 {
     [[[[self.ref child:@"tvProgramm"] child:[FIRAuth auth].currentUser.uid] child:@"tvProgramm"] setValue:responseObject];
     saveTvProgramm = 1;
+}
+
+#pragma mark - sync received database
+
+- (void)syncReceivedDatabase:(NSArray *)responseObject
+{
+    [[TSDataService sharedService] syncReceivedDatabase:responseObject];
 }
 
 @end

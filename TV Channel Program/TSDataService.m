@@ -30,6 +30,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         service = [[TSDataService alloc] init];
+
     });
     return service;
 }
@@ -99,5 +100,34 @@
     }
 }
 
+//синхронизация базы по запросу пользователя. Избранные каналы в базе остаются
+
+- (void)syncReceivedDatabase:(NSArray *)responseObject
+{
+    [self.ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSArray *channels = [TSChanel initWithSnapshot:snapshot];
+        if (channels && syncReceived == YES) {
+            NSMutableArray *updateChannels = [NSMutableArray array];
+            for (int i = 0; i < [channels count]; i++) {
+                TSChanel *channelFromTheBase = [channels objectAtIndex:i];
+                NSDictionary *newChannel = [responseObject objectAtIndex:i];
+                NSMutableDictionary *updateChannel = [NSMutableDictionary dictionary];
+                [updateChannel setObject:[newChannel objectForKey:@"id"] forKey:@"id"];
+                [updateChannel setObject:[newChannel objectForKey:@"name"] forKey:@"name"];
+                [updateChannel setObject:[newChannel objectForKey:@"url"] forKey:@"url"];
+                [updateChannel setObject:[newChannel objectForKey:@"picture"] forKey:@"picture"];
+                [updateChannel setObject:[newChannel objectForKey:@"category_id"] forKey:@"category_id"];
+                if (channelFromTheBase.favorite) {
+                    [updateChannel setObject:@"favorite" forKey:@"favorite"];
+                }
+                [updateChannels addObject:updateChannel];
+            }
+            if ([updateChannels count] > 0) {
+                [[[[self.ref child:@"tvBase"] child:[FIRAuth auth].currentUser.uid] child:@"channels"] setValue:updateChannels];
+                syncReceived = NO;
+            }
+        }
+    }];
+}
 
 @end

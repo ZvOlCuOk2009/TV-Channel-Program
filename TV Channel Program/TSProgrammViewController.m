@@ -115,8 +115,8 @@
             self.datePicker.backgroundColor = [UIColor whiteColor];
             self.datePicker.locale = locale;
             self.datePicker.datePickerMode = UIDatePickerModeDate;
-            [self.datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
-            
+            [self.datePicker addTarget:self action:@selector(dateChanged:)
+                      forControlEvents:UIControlEventValueChanged];
             if (self.datePicker.superview == nil)
             {
                 [self.view.window addSubview: self.datePicker];

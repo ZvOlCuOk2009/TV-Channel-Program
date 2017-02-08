@@ -11,6 +11,7 @@
 #import "TSDataService.h"
 #import "TSChanel.h"
 #import "TSTVProgramm.h"
+#import "TSTVSelectedProgramm.h"
 #import "TSChannelViewController.h"
 
 NSInteger syncDatabase;
@@ -79,7 +80,21 @@ NSInteger firstCall;
                                 inSuccess:(void(^)(NSArray *tvProgramm))success
 {
     [[TSTransportService sharedService] loadedTvProgrammByTimestamp:timestamp insuccess:^(NSArray *programms) {
-        /////////////////
+        NSMutableArray *selectedProgramm = nil;
+        if (programms) {
+            selectedProgramm = [NSMutableArray array];
+            for (NSDictionary *programm in programms) {
+                NSString *ID = [programm objectForKey:@"channel_id"];
+                if ([ID integerValue] == channelID) {
+                    TSTVSelectedProgramm *programmDict =
+                    [[TSTVSelectedProgramm alloc] initSelectedProgrammResponse:programm];
+                    [selectedProgramm addObject:programmDict];
+                }
+            }
+        }
+        if (selectedProgramm) {
+            success(selectedProgramm);
+        }
     }];
 }
 

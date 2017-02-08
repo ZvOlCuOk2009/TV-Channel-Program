@@ -9,7 +9,10 @@
 #import "TSSelectedProgrammViewController.h"
 #import "TSProgrammCell.h"
 #import "TSTVProgramm.h"
+#import "TSTVSelectedProgramm.h"
 #import "TSContentService.h"
+
+#import <SVProgressHUD.h>
 
 @interface TSSelectedProgrammViewController ()
 
@@ -50,11 +53,17 @@
 
 - (void)requestToDatabase
 {
-    [self.contentService loadedTvProgrammSelectedTimestamp:self.timestamp
+    [SVProgressHUD show];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.contentService loadedTvProgrammSelectedTimestamp:self.timestamp
                                                  byChannel:[self.channelID integerValue] inSuccess:^(NSArray *tvProgramm) {
-                                               self.selectegProgramms = tvProgramm;
-                                               [self.tableView reloadData];
-                                           }];
+                                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                                         self.selectegProgramms = tvProgramm;
+                                                         [self.tableView reloadData];
+                                                         [SVProgressHUD dismiss];
+                                                         });
+                                                 }];
+    });
 }
 
 #pragma mark - UITableViewDataSource
@@ -78,7 +87,7 @@
 #pragma mark - Configure Cells
 
 - (void)configureCell:(TSProgrammCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    TSTVProgramm *programm = [self.selectegProgramms objectAtIndex:indexPath.row];
+    TSTVSelectedProgramm *programm = [self.selectegProgramms objectAtIndex:indexPath.row];
     cell.titleLabel.text = programm.title;
     cell.timeLabel.text = programm.time;
 }
